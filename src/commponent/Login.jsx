@@ -4,7 +4,8 @@ import { AuthContex } from "../Providers/AuthProviders";
 
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContex)
+    const {user,loginUser} = useContext(AuthContex)
+    console.log(user)
 
     const handleLogin = (event) =>{
         event.preventDefault();
@@ -16,7 +17,7 @@ const Login = () => {
         loginUser(email,password)
         .then(regult => {
             const loggedUser = regult.user;
-            console.log(loggedUser)
+            // console.log(loggedUser)
         })
         .catch(error => {
             console.log(error)
