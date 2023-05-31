@@ -17,7 +17,8 @@ const Login = () => {
         loginUser(email,password)
         .then(regult => {
             const loggedUser = regult.user;
-            // console.log(loggedUser)
+            console.log(loggedUser)
+            form.reset()
         })
         .catch(error => {
             console.log(error)

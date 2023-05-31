@@ -9,6 +9,7 @@ const auth = getAuth(app);
 
 const AuthProviders = ({children}) => {
     const [user,setUser] = useState(null)
+    const [lodding,useLodding] = useState(true)
 
     const crateUser = (email,password) =>{
         return createUserWithEmailAndPassword(auth,email,password)
@@ -22,6 +23,7 @@ const AuthProviders = ({children}) => {
         const unsubscrib = onAuthStateChanged(auth,currentUser =>{
             console.log('Auth state change',currentUser)
             setUser(currentUser)
+            useLodding(false)
         })
         return()=>{
             unsubscrib();
@@ -37,7 +39,8 @@ const AuthProviders = ({children}) => {
         user,
         crateUser,
         loginUser,
-        logOut
+        logOut,
+        lodding
     }
 
   
